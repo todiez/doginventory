@@ -13,6 +13,7 @@ function DogInfo() {
   return (
     <div className="dogs">
       <h1>THIS IS THE DOG INFO</h1>
+      <p>The dog is called </p>
     </div>
   );
 }
@@ -33,7 +34,7 @@ function AvailableDog() {
   return (
     <div className="dogs">
       <h1>This is a dog with the id of {info.userid}</h1>
-      <DogInfo />
+      <DogInfo/>
     </div>
   );
 }
@@ -52,7 +53,7 @@ function AvailableDogs() {
 
 
 
-
+//App is parent to all other components
 function App() {
   return (
     <div className="App">
