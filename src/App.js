@@ -1,4 +1,5 @@
-import logo from './logo.svg';
+import Home from "./Home";
+import About from "./About";
 import './App.css';
 
 import { BrowserRouter as Router, Route, Routes, useParams } from 'react-router-dom';
@@ -18,7 +19,6 @@ function DogInfo() {
 
 
 //PAGES
-
 function AvailableDog() {
   let info = useParams();
   console.log("-------")
@@ -50,31 +50,7 @@ function AvailableDogs() {
   );
 }
 
-function About() {
-  const {dogInventory} = useShelterContext()
-  console.log("--------ABOUT")
-  console.log(dogInventory)
-  console.log("--------")
-  return (
-    <div className="about">
-      <h1>ABOUT PAGE</h1>
-    </div>
-  );
-}
 
-function Home() {
-
-  const {dogInventory} = useShelterContext()
-  console.log("--------")
-  console.log(dogInventory)
-  console.log("--------")
-
-  return (
-    <div className="home">
-      <h1>HOME PAGE</h1>
-    </div>
-  );
-}
 
 
 function App() {
@@ -83,7 +59,7 @@ function App() {
       <ShleterProvider>
         <Router>
           <Routes>
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/availabledogs" element={<AvailableDogs />} />
             <Route path="/availabledog/:userid" element={<AvailableDog />} />
