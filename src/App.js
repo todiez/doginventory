@@ -2,10 +2,10 @@ import Home from "./Home";
 import About from "./About";
 import './App.css';
 
-import { BrowserRouter as Router, Route, Routes, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import ShelterContext from "./utils/dogShelterContext"
 import { useShelterContext } from "./utils/dogShelterContext"
-import ShleterProvider from "./utils/dogShelterContext"
+
 
 
 //COMPONENTS
@@ -21,16 +21,7 @@ function DogInfo() {
 
 //PAGES
 function AvailableDog() {
-  let info = useParams();
-  console.log("-------")
-  console.log(info.userid)
-  console.log("-------")
-  
-  const {dogInventory, setDogInventory} = useShelterContext()
-  console.log("--------SINGULAR DOG")
-  console.log(dogInventory)
-  console.log("--------")
-  setDogInventory([...dogInventory, {name:"Hank", age:5, breed:"Staffordshire"}])
+
   return (
     <div className="dogs">
       <h1>This is a dog with the id of {info.userid}</h1>
@@ -57,7 +48,7 @@ function AvailableDogs() {
 function App() {
   return (
     <div className="App">
-      <ShleterProvider>
+      <ShelterProvider>
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -66,7 +57,7 @@ function App() {
             <Route path="/availabledog/:userid" element={<AvailableDog />} />
           </Routes>
         </Router>
-      </ShleterProvider>
+      </ShelterProvider>
     </div>
   );
 }
