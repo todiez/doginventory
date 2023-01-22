@@ -1,16 +1,24 @@
-import React, {useState, useContext} from "react"
+import React, { useState, useContext } from "react";
 
-export const ShelterContext = React.createContext()
+//initializing context
+export const ShelterContexts = React.createContext();
 
-export const useShelterContext = ()=> useContext(ShelterContext) 
+//this is actually using context, making it available
+export const useShelterContext = () => useContext(ShelterContexts);
 
-export default function ShelterProvider({children}){
-    const [dogInventory, setDogInventory]= useState([{userid:1234, name:"Runa", balance:2},{userid:5678, name:"skadi", age:3, breed:"Bulldog"}])
-    
-return(
-    <ShelterContext.Provider value={{setDogInventory, dogInventory}}>
-        {children}
-    </ShelterContext.Provider>
-)}
+//one element in which all others can be rendered out within
+//keyword children needs to be children and nothing else
+export default function ShelterProvider({ children }) {
+  const [dogInventory, setDogInventory] = useState([
+    { name: "runa", age: 2, breed: "pit" },
+    { name: "Paz", age: 6, breed: "mix" },
+  ]);
+  //could also be the clients of an application of the database
 
-//form that will get the users id (123)
+  return (
+    <ShelterContexts.Provider value={{dogInventory, setDogInventory}}>
+        {/* with setDogInvenotry the the context dogInventory (e.g.name) can be changed */}
+      {children}
+    </ShelterContexts.Provider>
+  );
+}
